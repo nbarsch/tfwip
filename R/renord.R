@@ -5,6 +5,7 @@
 #' @param waitsec optional number of seconds to wait after connecting
 #' @export
 renord <- function(nordloc="randomcity",waitsec=4){
+  system("nordvpn disconnect")
   if(tolower(nordloc)=="randomus"){
     library(rvest)
     library(httr)
@@ -66,4 +67,5 @@ renord <- function(nordloc="randomcity",waitsec=4){
     nordstat <- system("nordvpn status",intern=T)
     if(length(nordstat)>1){nordstat <- paste(nordstat,collapse=" ")}
   }
+  system("nordvpn status")
 }
