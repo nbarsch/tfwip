@@ -16,14 +16,15 @@ renord <- function(nordloc="randomcity",waitsec=4){
     sampnord <- sample(gf$domain,1)
     sampnord <- gsub("nordvpn.com","",sampnord)
     sampnord <- gsub("[[:punct:]]","",sampnord)
-  }
-  if(tolower(nordloc)=="randomcity"){
-    nordcities <- c("Atlanta", "Chicago", "Los_Angeles",	"New_York",	"Salt_Lake_City",
-                    "Buffalo", "Dallas", "Manassas",	"Phoenix", "San_Francisco",
-                    "Charlotte",	"Denver", "Miami", "Saint_Louis",	"Seattle")
-    sampnord <- sample(nordcities,1)
   }else{
-    sampnord <- nordloc
+    if(tolower(nordloc)=="randomcity"){
+      nordcities <- c("Atlanta", "Chicago", "Los_Angeles",	"New_York",	"Salt_Lake_City",
+                      "Buffalo", "Dallas", "Manassas",	"Phoenix", "San_Francisco",
+                      "Charlotte",	"Denver", "Miami", "Saint_Louis",	"Seattle")
+      sampnord <- sample(nordcities,1)
+    }else{
+      sampnord <- nordloc
+    }
   }
   system("nordvpn disconnect")
   Sys.sleep(3)
@@ -45,15 +46,17 @@ renord <- function(nordloc="randomcity",waitsec=4){
       sampnord <- sample(gf$domain,1)
       sampnord <- gsub("nordvpn.com","",sampnord)
       sampnord <- gsub("[[:punct:]]","",sampnord)
-    }
-    if(tolower(nordloc)=="randomcity"){
-      nordcities <- c("Atlanta", "Chicago", "Los_Angeles",	"New_York",	"Salt_Lake_City",
-                      "Buffalo", "Dallas", "Manassas",	"Phoenix", "San_Francisco",
-                      "Charlotte",	"Denver", "Miami", "Saint_Louis",	"Seattle")
-      sampnord <- sample(nordcities,1)
     }else{
-      sampnord <- nordloc
+      if(tolower(nordloc)=="randomcity"){
+        nordcities <- c("Atlanta", "Chicago", "Los_Angeles",	"New_York",	"Salt_Lake_City",
+                        "Buffalo", "Dallas", "Manassas",	"Phoenix", "San_Francisco",
+                        "Charlotte",	"Denver", "Miami", "Saint_Louis",	"Seattle")
+        sampnord <- sample(nordcities,1)
+      }else{
+        sampnord <- nordloc
+      }
     }
+
     system("nordvpn disconnect")
     Sys.sleep(3)
     system(paste0("nordvpn connect ",sampnord))
@@ -61,5 +64,6 @@ renord <- function(nordloc="randomcity",waitsec=4){
       Sys.sleep(waitsec)
     }
     nordstat <- system("nordvpn status",intern=T)
+    if(length(nordstat)>1){nordstat <- paste(nordstat,collapse=" ")}
   }
 }
