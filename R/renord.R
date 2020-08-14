@@ -32,6 +32,7 @@ renord <- function(nordloc="randomcity",waitsec=4){
     Sys.sleep(waitsec)
   }
   nordstat <- system("nordvpn status",intern=T)
+  if(length(nordstat)>1){nordstat <- paste(nordstat,collapse=" ")}
   while(grepl("Disconnected",nordstat)){
     if(tolower(nordloc)=="randomus"){
       library(rvest)
