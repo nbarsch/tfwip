@@ -17,7 +17,6 @@ renord <- function(nordloc="randomcity",waitsec=4){
     sampnord <- gsub("nordvpn.com","",sampnord)
     sampnord <- gsub("[[:punct:]]","",sampnord)
   }
-  library(sp)
   if(tolower(nordloc)=="randomcity"){
     nordcities <- c("Atlanta", "Chicago", "Los_Angeles",	"New_York",	"Salt_Lake_City",
                     "Buffalo", "Dallas", "Manassas",	"Phoenix", "San_Francisco",
@@ -46,8 +45,6 @@ renord <- function(nordloc="randomcity",waitsec=4){
       sampnord <- gsub("nordvpn.com","",sampnord)
       sampnord <- gsub("[[:punct:]]","",sampnord)
     }
-    library(geojsonio)
-    library(sp)
     if(tolower(nordloc)=="randomcity"){
       nordcities <- c("Atlanta", "Chicago", "Los_Angeles",	"New_York",	"Salt_Lake_City",
                       "Buffalo", "Dallas", "Manassas",	"Phoenix", "San_Francisco",
