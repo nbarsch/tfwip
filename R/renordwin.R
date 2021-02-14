@@ -30,7 +30,8 @@ renordwin <- function(waitsecmin=8,waitsecmax=10,nordloc="randomUS", disconnect=
     sampnord <- nordoc
   }
   system(paste0('nordvpn -c -n "',sampnord,'"'))
-  rs(waitsecmin,waitsecmax)
+  randsleep <- sample(seq(waitsecmin, waitsecmax, by = 0.001), 1)
+  Sys.sleep(randsleep)
   myip <- RCurl::getURL("ifconfig.me")
   if(myip==myip1){
     if(isTRUE(disconnect)){
@@ -53,7 +54,8 @@ renordwin <- function(waitsecmin=8,waitsecmax=10,nordloc="randomUS", disconnect=
       sampnord <- nord
     }
     system(paste0('nordvpn -c -n "',sampnord,'"'))
-    rs(waitsecmin,waitsecmax)
+    randsleep <- sample(seq(waitsecmin, waitsecmax, by = 0.001), 1)
+    Sys.sleep(randsleep)
     myip <- RCurl::getURL("ifconfig.me")
   }
   if(myip==myip1){
@@ -69,7 +71,8 @@ renordwin <- function(waitsecmin=8,waitsecmax=10,nordloc="randomUS", disconnect=
       sampnord <- nord
     }
     system(paste0('nordvpn -c -n "',sampnord,'"'))
-    rs(waitsecmin,waitsecmax)
+    randsleep <- sample(seq(waitsecmin, waitsecmax, by = 0.001), 1)
+    Sys.sleep(randsleep)
     myip <- RCurl::getURL("ifconfig.me")
   }
   print(paste0("IP CHANGED FROM: ",myiporig," TO: ",myip))
