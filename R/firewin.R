@@ -10,7 +10,7 @@
 #' @param waitsecmin optional min number of seconds to wait after connecting
 #' @param waitsecmax optional max number of seconds to wait after connecting
 #' @export
-firewin <- function(firecaps="default",noimage=TRUE,killjava=TRUE,killfire=TRUE,killports=FALSE,port=4567,waitsecmin=2,waitsecmax=3){
+firewin <- function(firecaps="dtrackprotectdonotnofinger",noimage=TRUE,killjava=TRUE,killfire=TRUE,killports=FALSE,port=4567,waitsecmin=2,waitsecmax=3){
   require(RSelenium)
   #gc()
   #system("killall firefox")
