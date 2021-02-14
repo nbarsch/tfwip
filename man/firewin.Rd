@@ -16,7 +16,7 @@ firewin(
 )
 }
 \arguments{
-\item{firecaps}{firefox capabilities default="default", other options dtrackprotect dtrackprotectnofinger dtrackprotectdonot dtrackprotectdonotnofinger}
+\item{firecaps}{firefox capabilities default=default, other options dtrackprotect dtrackprotectnofinger dtrackprotectdonot dtrackprotectdonotnofinger}
 
 \item{noimage}{block images? default=TRUE}
 
