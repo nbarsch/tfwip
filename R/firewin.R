@@ -1,7 +1,7 @@
 #' firewin()
 #'
 #' launch windows firefox
-#' @param firecaps firefox capabilities default="default", other options dtrackprotect dtrackprotectnofinger dtrackprotectdonot dtrackprotectdonotnofinger
+#' @param firecaps firefox capabilities default=default, other options dtrackprotect dtrackprotectnofinger dtrackprotectdonot dtrackprotectdonotnofinger
 #' @param noimage block images? default=TRUE
 #' @param killjava kill java processes prior to launching, default=TRUE
 #' @param killfire kill firefox processes prior to launching, default=TRUE
