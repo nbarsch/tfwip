@@ -17,12 +17,23 @@ firewin <- function(firecaps="dtrackprotectdonotnofinger",noimage=TRUE,killjava=
   if(isTRUE(killports)){
     system(paste0("kill -9 $(lsof -t -i:",as.integer(port)," -sTCP:LISTEN)"))
   }
-  if(isTRUE(killjava)){
-    system("taskkill /im java.exe /f",intern=F)
+  sinfo <- Sys.info()
+  if(sinfo[["sysname"]]=="Linux"){
+    if(isTRUE(killjava)){
+      system("killall java",intern=F)
+    }
+    if(isTRUE(killfire)){
+      system("killall firefox",intern=F)
+    }
+  }else{
+    if(isTRUE(killjava)){
+      system("taskkill /im java.exe /f",intern=F)
+    }
+    if(isTRUE(killfire)){
+      system("taskkill /im firefox.exe /f",intern=F)
+    }
   }
-  if(isTRUE(killfire)){
-    system("taskkill /im firefox.exe /f",intern=F)
-  }
+
   
   if(isTRUE(noimage)){
     if(firecaps=="default"){

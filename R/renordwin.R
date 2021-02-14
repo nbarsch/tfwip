@@ -39,7 +39,7 @@ renordwin <- function(waitsecmin=8,waitsecmax=10,nordloc="randomUS", disconnect=
       Sys.sleep(1)
     }
     myip1 <- RCurl::getURL("ifconfig.me")
-    if(nord=="randomus"){
+    if(nordloc=="randomUS"){
       require(rvest)
       require(httr)
       require(jsonlite)
@@ -64,7 +64,7 @@ renordwin <- function(waitsecmin=8,waitsecmax=10,nordloc="randomUS", disconnect=
       Sys.sleep(1)
     }
     myip1 <- RCurl::getURL("ifconfig.me")
-    if(nord=="randomUS"){
+    if(nordloc=="randomUS"){
       #gf <- gf[gf$country=="United States",]
       sampnord <- sample(gf$name,1)
     }else{
