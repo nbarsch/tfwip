@@ -47,12 +47,12 @@ firewin <- function(firecaps="dtrackprotectdonotnofinger",noimage=TRUE,killjava=
           #"network.cookie.cookieBehavior" = 2,
           #"network.cookie.lifetimePolicy" = 2,
           "webgl.disabled" = TRUE,
-          #"geo.enabled" = FALSE,
+          "geo.enabled" = FALSE,
           #"privacy.resistFingerprinting" = TRUE,
           'permissions.default.image'= 2,
-          "privacy.clearOnShutdown.cache" = TRUE,
-          "privacy.clearOnShutdown.cookies" = TRUE)
-        #"privacy.trackingprotection.enabled"=TRUE,
+          #"privacy.clearOnShutdown.cache" = TRUE,
+          #"privacy.clearOnShutdown.cookies" = TRUE)
+         "privacy.trackingprotection.enabled"=TRUE)
         #"privacy.donottrackheader.enabled"=TRUE)
       )
       )

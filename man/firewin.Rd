@@ -5,7 +5,7 @@
 \title{firewin()}
 \usage{
 firewin(
-  firecaps = "default",
+  firecaps = "dtrackprotectdonotnofinger",
   noimage = TRUE,
   killjava = TRUE,
   killfire = TRUE,
