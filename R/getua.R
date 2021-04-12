@@ -7,7 +7,7 @@
 #' @param forcenew true or false force a new update of user agents to be downloaded and used
 #' @param mainbrow use only firefox, chrome, or safari uagents
 #' @export
-getua <- function(brow="random",browver="random",uasys="random",forcenew=FALSE, mainbrow=TRUE){
+getua <- function(brow="random",browver="random",uasys="random",forcenew=FALSE, mainbrow=TRUE, ret="string"){
   
   require(lubridate)
   require(foreach)
@@ -83,5 +83,9 @@ getua <- function(brow="random",browver="random",uasys="random",forcenew=FALSE, 
     tuagents <- tuagents[tuagents$uasysgen==tolower(uasys),]
   }
   
-  return(tuagents$uatxt[sample(c(1:nrow(tuagents)),1)])
+  if(ret=="data" | ret=="df" | ret=="dt" | ret=="d"){
+    return(tuagents[sample(c(1:nrow(tuagents)),1),])
+  }else{
+    return(tuagents$uatxt[sample(c(1:nrow(tuagents)),1)])
+  }
 }
